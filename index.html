@@ -1,0 +1,400 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!doctype html>\
+<html lang="ru">\
+<head>\
+  <meta charset="utf-8" />\
+  <meta name="viewport" content="width=device-width, initial-scale=1" />\
+  <title>\uc0\u1056 \u1091 \u1083 \u1077 \u1090 \u1082 \u1072  \u1087 \u1086 \u1076 \u1072 \u1088 \u1082 \u1086 \u1074  \u1080  \u1089 \u1082 \u1080 \u1076 \u1086 \u1082 </title>\
+  <style>\
+    :root \{\
+      --bg: #0b0f14;\
+      --card: #121821;\
+      --accent: #6ee7ff;\
+      --muted: #8aa0b3;\
+      --ok: #22c55e;\
+      --warn: #f59e0b;\
+      --err: #ef4444;\
+    \}\
+    * \{ box-sizing: border-box; \}\
+    html, body \{ height: 100%; \}\
+    body \{\
+      margin: 0;\
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji", "Segoe UI Emoji";\
+      color: white;\
+      background: radial-gradient(1200px 600px at 50% -10%, rgba(110,231,255,.07), transparent 60%), var(--bg);\
+      letter-spacing: .2px;\
+    \}\
+    .wrap \{ max-width: 980px; margin: 0 auto; padding: 24px; \}\
+    .header \{ display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; \}\
+    .brand \{ display: flex; align-items: center; gap: 12px; \}\
+    .badge \{ padding: 6px 10px; border: 1px solid rgba(255,255,255,.1); border-radius: 999px; font-size: 12px; color: var(--muted); \}\
+    .card \{ background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06); \}\
+    .grid \{ display: grid; grid-template-columns: 1fr; gap: 18px; \}\
+    @media (min-width: 900px)\{ .grid \{ grid-template-columns: 1.1fr .9fr; \} \}\
+    .panel \{ padding: 18px; \}\
+    .title \{ font-size: 28px; font-weight: 800; letter-spacing: .3px; \}\
+    .subtitle \{ color: var(--muted); margin-top: 4px; \}\
+    .wheel-wrap \{ display:flex; align-items:center; justify-content:center; padding: 12px 0 24px; \}\
+    canvas \{ width: 100%; max-width: 520px; height: auto; display:block; \}\
+    .controls \{ display:flex; gap: 10px; align-items:center; flex-wrap: wrap; margin-top: 14px; \}\
+    button \{\
+      border: 0; cursor: pointer; border-radius: 14px; font-weight: 700; letter-spacing: .3px;\
+      padding: 12px 16px; color: #020617; background: linear-gradient(180deg, #8be9ff, #57d0ff);\
+      box-shadow: 0 12px 30px rgba(87,208,255,.35), inset 0 1px 0 rgba(255,255,255,.6);\
+    \}\
+    button[disabled]\{ opacity:.55; cursor:not-allowed; \}\
+    .ghost \{ background: transparent; color: white; border: 1px solid rgba(255,255,255,.15); box-shadow: none; \}\
+    .status \{ margin-top: 10px; font-size: 14px; color: var(--muted); \}\
+    .list \{ padding: 0; margin: 0; list-style: none; display: grid; gap:10px; \}\
+    .item \{ display:flex; align-items:center; gap:10px; \}\
+    .dot \{ width: 10px; height: 10px; border-radius: 50%; display:inline-block; \}\
+    .muted \{ color: var(--muted); \}\
+    .foot \{ margin-top: 10px; font-size: 12px; color: var(--muted); \}\
+\
+    .modal \{ position: fixed; inset: 0; display:none; align-items:center; justify-content:center; background: rgba(2,6,23,.55); backdrop-filter: blur(6px); padding: 20px; \}\
+    .modal.open \{ display:flex; \}\
+    .modal-card \{ width: 100%; max-width: 520px; padding: 20px; \}\
+    .result \{ font-size: 22px; font-weight: 800; \}\
+    .code \{ margin-top: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background: rgba(255,255,255,.06); padding: 8px 10px; border-radius: 10px; display:flex; align-items:center; justify-content:space-between; gap:10px; \}\
+    .small \{ font-size: 12px; \}\
+    .success \{ color: var(--ok); \}\
+\
+    .pointer \{ position: relative; display:flex; align-items:center; justify-content:center; \}\
+    .pointer:before \{ content:""; position: absolute; top:-6px; width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent; border-bottom: 18px solid #e2e8f0; filter: drop-shadow(0 3px 6px rgba(0,0,0,.35)); z-index: 2; \}\
+\
+    .note \{ font-size: 12px; color: var(--muted); margin-top: 10px; \}\
+    .pill \{ padding: 6px 10px; border-radius: 999px; background: rgba(34,197,94,.1); color: var(--ok); font-weight: 700; font-size: 12px; \}\
+  </style>\
+</head>\
+<body>\
+  <div class="wrap">\
+    <div class="header">\
+      <div class="brand">\
+        <div class="badge">\uc0\u1040 \u1082 \u1094 \u1080 \u1103 </div>\
+        <div>\
+          <div class="title" id="brandTitle">\uc0\u1056 \u1091 \u1083 \u1077 \u1090 \u1082 \u1072  \u1084 \u1072 \u1075 \u1072 \u1079 \u1080 \u1085 \u1072 </div>\
+          <div class="subtitle">\uc0\u1050 \u1088 \u1091 \u1090 \u1080  \u1082 \u1086 \u1083 \u1077 \u1089 \u1086  \u1080  \u1087 \u1086 \u1083 \u1091 \u1095 \u1072 \u1081  \u1087 \u1088 \u1080 \u1079 \u1099 : \u1089 \u1082 \u1080 \u1076 \u1082 \u1080 , \u1087 \u1086 \u1076 \u1072 \u1088 \u1082 \u1080  \u1080  \u1087 \u1088 \u1086 \u1084 \u1086 \u1082 \u1086 \u1076 \u1099 </div>\
+        </div>\
+      </div>\
+      <div class="pill" id="limitBadge">1 \uc0\u1087 \u1086 \u1087 \u1099 \u1090 \u1082 \u1072  / \u1076 \u1077 \u1085 \u1100 </div>\
+    </div>\
+\
+    <div class="grid" style="margin-top: 18px;">\
+      <div class="card panel pointer">\
+        <div class="wheel-wrap">\
+          <canvas id="wheel" width="520" height="520" aria-label="\uc0\u1050 \u1086 \u1083 \u1077 \u1089 \u1086  \u1091 \u1076 \u1072 \u1095 \u1080 "></canvas>\
+        </div>\
+        <div class="controls" style="justify-content:center;">\
+          <button id="spinBtn">\uc0\u1050 \u1056 \u1059 \u1058 \u1048 \u1058 \u1068 </button>\
+          <button class="ghost" id="shareBtn" title="\uc0\u1057 \u1082 \u1086 \u1087 \u1080 \u1088 \u1086 \u1074 \u1072 \u1090 \u1100  \u1089 \u1089 \u1099 \u1083 \u1082 \u1091  \u1085 \u1072  \u1088 \u1091 \u1083 \u1077 \u1090 \u1082 \u1091 ">\u1055 \u1086 \u1076 \u1077 \u1083 \u1080 \u1090 \u1100 \u1089 \u1103 </button>\
+        </div>\
+        <div class="status" id="status">\uc0\u1043 \u1086 \u1090 \u1086 \u1074 \u1086  \u1082  \u1074 \u1088 \u1072 \u1097 \u1077 \u1085 \u1080 \u1102 .</div>\
+        <div class="note">\uc0\u1057 \u1086 \u1074 \u1077 \u1090 : \u1089 \u1076 \u1077 \u1083 \u1072 \u1081 \u1090 \u1077  \u1089 \u1082 \u1088 \u1080 \u1085  \u1087 \u1088 \u1086 \u1084 \u1086 \u1082 \u1086 \u1076 \u1072  \u1080 \u1083 \u1080  \u1085 \u1072 \u1078 \u1084 \u1080 \u1090 \u1077  \'ab\u1055 \u1086 \u1076 \u1077 \u1083 \u1080 \u1090 \u1100 \u1089 \u1103 \'bb, \u1095 \u1090 \u1086 \u1073 \u1099  \u1085 \u1077  \u1087 \u1086 \u1090 \u1077 \u1088 \u1103 \u1090 \u1100  \u1087 \u1088 \u1080 \u1079 .</div>\
+      </div>\
+\
+      <div class="card panel">\
+        <div style="font-weight:800; letter-spacing:.3px;">\uc0\u1055 \u1088 \u1080 \u1079 \u1099  \u1089 \u1077 \u1075 \u1086 \u1076 \u1085 \u1103 </div>\
+        <ul class="list" id="prizeList"></ul>\
+        <div class="foot">\uc0\u1042 \u1077 \u1088 \u1086 \u1103 \u1090 \u1085 \u1086 \u1089 \u1090 \u1080  \u1088 \u1072 \u1089 \u1087 \u1088 \u1077 \u1076 \u1077 \u1083 \u1077 \u1085 \u1099  \u1089 \u1086 \u1075 \u1083 \u1072 \u1089 \u1085 \u1086  \u1085 \u1072 \u1089 \u1090 \u1088 \u1086 \u1081 \u1082 \u1072 \u1084 . \u1055 \u1086 \u1087 \u1099 \u1090 \u1086 \u1082  \u1085 \u1072  \u1091 \u1089 \u1090 \u1088 \u1086 \u1081 \u1089 \u1090 \u1074 \u1086  \u1074  \u1076 \u1077 \u1085 \u1100 : <span id="limitText"></span>.</div>\
+      </div>\
+    </div>\
+  </div>\
+\
+  <div class="modal" id="resultModal" role="dialog" aria-modal="true">\
+    <div class="card modal-card">\
+      <div class="result" id="resultTitle">\uc0\u1042 \u1072 \u1096  \u1087 \u1088 \u1080 \u1079 </div>\
+      <div class="subtitle" id="resultSubtitle" style="margin-top:6px;">\uc0\u1055 \u1086 \u1079 \u1076 \u1088 \u1072 \u1074 \u1083 \u1103 \u1077 \u1084 ! \u1042 \u1099  \u1074 \u1099 \u1080 \u1075 \u1088 \u1072 \u1083 \u1080 :</div>\
+      <div class="result" id="resultPrize" style="margin-top:12px;"></div>\
+      <div class="code" style="margin-top:12px;">\
+        <span id="promoCode">\'97</span>\
+        <button id="copyBtn" class="ghost">\uc0\u1057 \u1082 \u1086 \u1087 \u1080 \u1088 \u1086 \u1074 \u1072 \u1090 \u1100 </button>\
+      </div>\
+      <div class="small muted" style="margin-top:8px;">\uc0\u1055 \u1086 \u1082 \u1072 \u1078 \u1080 \u1090 \u1077  \u1101 \u1090 \u1086 \u1090  \u1082 \u1086 \u1076  \u1085 \u1072  \u1082 \u1072 \u1089 \u1089 \u1077  \u1080 \u1083 \u1080  \u1074 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1087 \u1088 \u1080  \u1086 \u1092 \u1086 \u1088 \u1084 \u1083 \u1077 \u1085 \u1080 \u1080  \u1079 \u1072 \u1082 \u1072 \u1079 \u1072 . \u1050 \u1086 \u1076  \u1087 \u1088 \u1080 \u1074 \u1103 \u1079 \u1072 \u1085  \u1082  \u1091 \u1089 \u1090 \u1088 \u1086 \u1081 \u1089 \u1090 \u1074 \u1091 .</div>\
+      <div class="controls" style="margin-top:16px;">\
+        <button id="closeModal">\uc0\u1054 \u1082 </button>\
+        <button id="spinAgain" class="ghost">\uc0\u1050 \u1088 \u1091 \u1090 \u1080 \u1090 \u1100  \u1077 \u1097 \u1105 </button>\
+      </div>\
+    </div>\
+  </div>\
+\
+  <script>\
+    // === \uc0\u1053 \u1040 \u1057 \u1058 \u1056 \u1054 \u1049 \u1050 \u1048  ===\
+    const CONFIG = \{\
+      businessName: "\uc0\u1042 \u1072 \u1096  \u1052 \u1072 \u1075 \u1072 \u1079 \u1080 \u1085 ",\
+      dailyLimit: 1, // \uc0\u1087 \u1086 \u1087 \u1099 \u1090 \u1086 \u1082  \u1074  \u1076 \u1077 \u1085 \u1100  \u1085 \u1072  \u1091 \u1089 \u1090 \u1088 \u1086 \u1081 \u1089 \u1090 \u1074 \u1086 \
+      allowDebugParam: true, // ?debug=1 \uc0\u1086 \u1090 \u1084 \u1077 \u1085 \u1103 \u1077 \u1090  \u1083 \u1080 \u1084 \u1080 \u1090  (\u1076 \u1083 \u1103  \u1090 \u1077 \u1089 \u1090 \u1072 )\
+      segments: [\
+        \{ label: "\uc0\u1057 \u1082 \u1080 \u1076 \u1082 \u1072  \u8722 5%", weight: 30, code: "SALE5" \},\
+        \{ label: "\uc0\u1057 \u1082 \u1080 \u1076 \u1082 \u1072  \u8722 10%", weight: 25, code: "SALE10" \},\
+        \{ label: "\uc0\u1055 \u1086 \u1076 \u1072 \u1088 \u1086 \u1082  \u1082  \u1079 \u1072 \u1082 \u1072 \u1079 \u1091 ", weight: 15, code: "GIFT" \},\
+        \{ label: "\uc0\u1041 \u1077 \u1089 \u1087 \u1083 \u1072 \u1090 \u1085 \u1072 \u1103  \u1076 \u1086 \u1089 \u1090 \u1072 \u1074 \u1082 \u1072 ", weight: 15, code: "SHIPFREE" \},\
+        \{ label: "x2 \uc0\u1073 \u1086 \u1085 \u1091 \u1089 \u1099 ", weight: 10, code: "X2PTS" \},\
+        \{ label: "\uc0\u1044 \u1078 \u1077 \u1082 \u1087 \u1086 \u1090  \u8722 20%", weight: 5, code: "JACK20" \},\
+      ],\
+    \};\
+\
+    // === \uc0\u1042 \u1089 \u1087 \u1086 \u1084 \u1086 \u1075 \u1072 \u1090 \u1077 \u1083 \u1100 \u1085 \u1099 \u1077  \u1092 \u1091 \u1085 \u1082 \u1094 \u1080 \u1080  ===\
+    const $ = (sel) => document.querySelector(sel);\
+    const brandTitle = $("#brandTitle");\
+    const limitBadge = $("#limitBadge");\
+    const limitText = $("#limitText");\
+    const prizeList = $("#prizeList");\
+    const canvas = $("#wheel");\
+    const ctx = canvas.getContext('2d');\
+    const spinBtn = $("#spinBtn");\
+    const shareBtn = $("#shareBtn");\
+    const statusEl = $("#status");\
+\
+    const modal = $("#resultModal");\
+    const resultPrize = $("#resultPrize");\
+    const promoCodeEl = $("#promoCode");\
+    const copyBtn = $("#copyBtn");\
+    const closeModalBtn = $("#closeModal");\
+    const spinAgainBtn = $("#spinAgain");\
+\
+    const COLORS = ["#a8e6ff", "#7dd3fc", "#93c5fd", "#c4b5fd", "#f9a8d4", "#fca5a5", "#fdba74", "#fde68a"]; // \uc0\u1084 \u1103 \u1075 \u1082 \u1072 \u1103  \u1087 \u1072 \u1083 \u1080 \u1090 \u1088 \u1072 \
+\
+    const state = \{\
+      currentRotation: 0, // \uc0\u1088 \u1072 \u1076 \u1080 \u1072 \u1085 \u1099 \
+      spinning: false,\
+      lastResult: null,\
+      debug: false,\
+    \};\
+\
+    function todayKey()\{\
+      const d = new Date();\
+      return d.getFullYear()+"-"+(String(d.getMonth()+1).padStart(2,'0'))+"-"+String(d.getDate()).padStart(2,'0');\
+    \}\
+\
+    function getSpinStore()\{\
+      try \{ return JSON.parse(localStorage.getItem('spinStore')||'\{\}'); \} catch(e)\{ return \{\}; \}\
+    \}\
+    function setSpinStore(obj)\{\
+      try \{ localStorage.setItem('spinStore', JSON.stringify(obj)); \} catch(e)\{\}\
+    \}\
+\
+    function canSpin()\{\
+      if(state.debug) return \{ ok:true \};\
+      const store = getSpinStore();\
+      const key = todayKey();\
+      const count = (store[key]||0);\
+      const ok = count < CONFIG.dailyLimit;\
+      return \{ ok, countLeft: Math.max(0, CONFIG.dailyLimit - count) \};\
+    \}\
+    function registerSpin()\{\
+      if(state.debug) return;\
+      const store = getSpinStore();\
+      const key = todayKey();\
+      store[key] = (store[key]||0)+1;\
+      setSpinStore(store);\
+      updateLimitBadge();\
+    \}\
+\
+    function weightedRandomIndex(items)\{\
+      const total = items.reduce((s,x)=>s+(x.weight||1),0);\
+      let r = Math.random()*total;\
+      for(let i=0;i<items.length;i++)\{\
+        r -= (items[i].weight||1);\
+        if(r<=0) return i;\
+      \}\
+      return items.length-1;\
+    \}\
+\
+    function drawWheel(rotation=0)\{\
+      const W = canvas.width, H = canvas.height;\
+      const cx = W/2, cy = H/2, R = Math.min(W,H)/2 - 10;\
+      ctx.clearRect(0,0,W,H);\
+\
+      const n = CONFIG.segments.length;\
+      const segAngle = Math.PI*2/n;\
+\
+      for(let i=0;i<n;i++)\{\
+        const start = i*segAngle + rotation;\
+        const end = start + segAngle;\
+        ctx.beginPath();\
+        ctx.moveTo(cx,cy);\
+        ctx.arc(cx,cy,R,start,end);\
+        ctx.closePath();\
+        ctx.fillStyle = COLORS[i % COLORS.length];\
+        ctx.fill();\
+\
+        // \uc0\u1090 \u1077 \u1082 \u1089 \u1090 \
+        ctx.save();\
+        ctx.translate(cx,cy);\
+        const mid = start + segAngle/2;\
+        ctx.rotate(mid);\
+        ctx.textAlign = 'right';\
+        ctx.fillStyle = '#0b0f14';\
+        ctx.font = '700 16px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial';\
+        const text = CONFIG.segments[i].label;\
+        wrapFillText(ctx, text, R-16, 18, R-90);\
+        ctx.restore();\
+      \}\
+\
+      // \uc0\u1094 \u1077 \u1085 \u1090 \u1088 \
+      ctx.beginPath();\
+      ctx.arc(cx,cy, 36, 0, Math.PI*2);\
+      ctx.fillStyle = '#e2e8f0';\
+      ctx.fill();\
+      ctx.fillStyle = '#020617';\
+      ctx.font = '800 12px Inter, system-ui';\
+      ctx.textAlign = 'center';\
+      ctx.fillText('SPIN', cx, cy+4);\
+    \}\
+\
+    function wrapFillText(ctx, text, maxWidth, lineHeight, maxLineWidth)\{\
+      const words = text.split(' ');\
+      let line = '';\
+      let y = 4;\
+      for(let n=0;n<words.length;n++)\{\
+        const testLine = line + words[n] + ' ';\
+        const metrics = ctx.measureText(testLine);\
+        const w = metrics.width;\
+        if(w > (maxLineWidth||maxWidth) && n>0)\{\
+          ctx.fillText(line, maxWidth, y);\
+          line = words[n] + ' ';\
+          y += lineHeight;\
+        \} else \{\
+          line = testLine;\
+        \}\
+      \}\
+      ctx.fillText(line, maxWidth, y);\
+    \}\
+\
+    function spin()\{\
+      if(state.spinning) return;\
+      const check = canSpin();\
+      if(!check.ok)\{\
+        statusEl.textContent = `\uc0\u1051 \u1080 \u1084 \u1080 \u1090  \u1087 \u1086 \u1087 \u1099 \u1090 \u1086 \u1082  \u1085 \u1072  \u1089 \u1077 \u1075 \u1086 \u1076 \u1085 \u1103  \u1080 \u1089 \u1095 \u1077 \u1088 \u1087 \u1072 \u1085 . \u1042 \u1086 \u1079 \u1074 \u1088 \u1072 \u1097 \u1072 \u1081 \u1090 \u1077 \u1089 \u1100  \u1079 \u1072 \u1074 \u1090 \u1088 \u1072 .`;\
+        spinBtn.disabled = true;\
+        return;\
+      \}\
+\
+      state.spinning = true;\
+      spinBtn.disabled = true;\
+      statusEl.textContent = '\uc0\u1042 \u1088 \u1072 \u1097 \u1072 \u1077 \u1084 \'85';\
+\
+      const n = CONFIG.segments.length;\
+      const segAngle = Math.PI*2/n;\
+      const winner = weightedRandomIndex(CONFIG.segments);\
+\
+      // \uc0\u1094 \u1077 \u1083 \u1077 \u1074 \u1086 \u1081  \u1091 \u1075 \u1086 \u1083  \u1090 \u1072 \u1082 , \u1095 \u1090 \u1086 \u1073 \u1099  \u1091 \u1082 \u1072 \u1079 \u1072 \u1090 \u1077 \u1083 \u1100  \u1089 \u1074 \u1077 \u1088 \u1093 \u1091  (\u8722 90\'b0) \u1091 \u1082 \u1072 \u1079 \u1099 \u1074 \u1072 \u1083  \u1085 \u1072  \u1094 \u1077 \u1085 \u1090 \u1088  \u1089 \u1077 \u1082 \u1090 \u1086 \u1088 \u1072  winner\
+      const pointer = -Math.PI/2; // -90\'b0\
+      const segCenter = winner*segAngle + segAngle/2;\
+\
+      // \uc0\u1076 \u1086 \u1073 \u1072 \u1074 \u1080 \u1084  \u1085 \u1077 \u1073 \u1086 \u1083 \u1100 \u1096 \u1086 \u1081  \u1088 \u1072 \u1079 \u1073 \u1088 \u1086 \u1089  \u1074 \u1085 \u1091 \u1090 \u1088 \u1080  \u1089 \u1077 \u1082 \u1090 \u1086 \u1088 \u1072  (\'b1 25% \u1086 \u1090  \u1087 \u1086 \u1083 \u1086 \u1074 \u1080 \u1085 \u1099  \u1089 \u1077 \u1082 \u1090 \u1086 \u1088 \u1072 )\
+      const jitter = (Math.random()-0.5)*segAngle*0.5;\
+\
+      const targetBase = pointer - (segCenter + jitter);\
+      const extraSpins = 6 + Math.floor(Math.random()*3); // 6\'968 \uc0\u1087 \u1086 \u1083 \u1085 \u1099 \u1093  \u1086 \u1073 \u1086 \u1088 \u1086 \u1090 \u1086 \u1074 \
+      const target = targetBase + extraSpins * Math.PI*2;\
+\
+      const start = state.currentRotation;\
+      const delta = target - start;\
+      const duration = 3800 + Math.random()*800; // 3.8\'964.6s\
+      const startTime = performance.now();\
+\
+      function easeOutCubic(t)\{ return 1 - Math.pow(1-t, 3); \}\
+\
+      function frame(now)\{\
+        const p = Math.min(1, (now - startTime)/duration);\
+        const eased = easeOutCubic(p);\
+        state.currentRotation = start + delta*eased;\
+        drawWheel(state.currentRotation);\
+        if(p < 1)\{\
+          requestAnimationFrame(frame);\
+        \} else \{\
+          state.spinning = false;\
+          registerSpin();\
+          showResult(winner);\
+        \}\
+      \}\
+      requestAnimationFrame(frame);\
+    \}\
+\
+    function showResult(index)\{\
+      const prize = CONFIG.segments[index];\
+      state.lastResult = prize;\
+      resultPrize.textContent = prize.label;\
+      const code = generateCode(prize.code);\
+      promoCodeEl.textContent = code;\
+      openModal();\
+      statusEl.textContent = '\uc0\u1043 \u1086 \u1090 \u1086 \u1074 \u1086 . \u1042 \u1099 \u1087 \u1072 \u1083  \u1087 \u1088 \u1080 \u1079 : ' + prize.label;\
+      spinBtn.disabled = !canSpin().ok;\
+    \}\
+\
+    function generateCode(prefix)\{\
+      const part = Math.random().toString(36).slice(2, 8).toUpperCase();\
+      const code = `$\{prefix\}-$\{part\}`;\
+      try \{ localStorage.setItem('lastPromoCode', code); \} catch(e)\{\}\
+      return code;\
+    \}\
+\
+    function openModal()\{ modal.classList.add('open'); \}\
+    function closeModal()\{ modal.classList.remove('open'); \}\
+\
+    function renderPrizeList()\{\
+      prizeList.innerHTML = '';\
+      const total = CONFIG.segments.reduce((s,x)=>s+(x.weight||1),0);\
+      CONFIG.segments.forEach((s, i)=>\{\
+        const li = document.createElement('li');\
+        li.className = 'item';\
+        const dot = document.createElement('span');\
+        dot.className = 'dot';\
+        dot.style.background = COLORS[i % COLORS.length];\
+        const label = document.createElement('div');\
+        const pct = Math.round((s.weight||1)/total*100);\
+        label.innerHTML = `<div style="font-weight:700;">$\{s.label\}</div><div class="muted" style="font-size:12px;">\uc0\u1042 \u1077 \u1088 \u1086 \u1103 \u1090 \u1085 \u1086 \u1089 \u1090 \u1100  \u8776  $\{pct\}% | \u1050 \u1086 \u1076 : $\{s.code\}</div>`;\
+        li.appendChild(dot);\
+        li.appendChild(label);\
+        prizeList.appendChild(li);\
+      \});\
+    \}\
+\
+    function updateLimitBadge()\{\
+      limitBadge.textContent = `$\{CONFIG.dailyLimit\} \uc0\u1087 \u1086 \u1087 \u1099 \u1090 \u1082 \u1072 $\{CONFIG.dailyLimit>1?'\u1080 ':''\} / \u1076 \u1077 \u1085 \u1100 `;\
+      const c = canSpin();\
+      limitText.textContent = CONFIG.dailyLimit;\
+      spinBtn.disabled = !c.ok;\
+      if(!c.ok)\{ statusEl.textContent = '\uc0\u1051 \u1080 \u1084 \u1080 \u1090  \u1087 \u1086 \u1087 \u1099 \u1090 \u1086 \u1082  \u1085 \u1072  \u1089 \u1077 \u1075 \u1086 \u1076 \u1085 \u1103  \u1080 \u1089 \u1095 \u1077 \u1088 \u1087 \u1072 \u1085 .'; \}\
+    \}\
+\
+    function init()\{\
+      // \uc0\u1088 \u1077 \u1078 \u1080 \u1084  \u1086 \u1090 \u1083 \u1072 \u1076 \u1082 \u1080 \
+      const params = new URLSearchParams(location.search);\
+      state.debug = CONFIG.allowDebugParam && params.get('debug')==='1';\
+      if(state.debug)\{ limitBadge.textContent = '\uc0\u1056 \u1077 \u1078 \u1080 \u1084  \u1090 \u1077 \u1089 \u1090 \u1072  \'97 \u1073 \u1077 \u1079  \u1083 \u1080 \u1084 \u1080 \u1090 \u1072 '; \}\
+\
+      brandTitle.textContent = CONFIG.businessName + ': \uc0\u1056 \u1091 \u1083 \u1077 \u1090 \u1082 \u1072 ';\
+      renderPrizeList();\
+      updateLimitBadge();\
+      drawWheel(state.currentRotation);\
+\
+      spinBtn.addEventListener('click', spin);\
+      shareBtn.addEventListener('click', ()=>\{\
+        try \{\
+          navigator.clipboard.writeText(location.href);\
+          statusEl.textContent = '\uc0\u1057 \u1089 \u1099 \u1083 \u1082 \u1072  \u1089 \u1082 \u1086 \u1087 \u1080 \u1088 \u1086 \u1074 \u1072 \u1085 \u1072 .';\
+        \} catch(e)\{ statusEl.textContent = '\uc0\u1053 \u1077  \u1091 \u1076 \u1072 \u1083 \u1086 \u1089 \u1100  \u1089 \u1082 \u1086 \u1087 \u1080 \u1088 \u1086 \u1074 \u1072 \u1090 \u1100  \u1089 \u1089 \u1099 \u1083 \u1082 \u1091 .'; \}\
+      \});\
+\
+      copyBtn.addEventListener('click', ()=>\{\
+        try \{ navigator.clipboard.writeText(promoCodeEl.textContent); statusEl.textContent = '\uc0\u1055 \u1088 \u1086 \u1084 \u1086 \u1082 \u1086 \u1076  \u1089 \u1082 \u1086 \u1087 \u1080 \u1088 \u1086 \u1074 \u1072 \u1085 .'; \} catch(e)\{\}\
+      \});\
+      closeModalBtn.addEventListener('click', closeModal);\
+      spinAgainBtn.addEventListener('click', ()=>\{ closeModal(); if(canSpin().ok) spin(); \});\
+\
+      // \uc0\u1047 \u1072 \u1082 \u1088 \u1099 \u1090 \u1080 \u1077  \u1084 \u1086 \u1076 \u1072 \u1083 \u1082 \u1080  \u1087 \u1086  \u1082 \u1083 \u1080 \u1082 \u1091  \u1074 \u1085 \u1077  \u1082 \u1072 \u1088 \u1090 \u1086 \u1095 \u1082 \u1080 \
+      modal.addEventListener('click', (e)=>\{ if(e.target === modal) closeModal(); \});\
+    \}\
+\
+    init();\
+  </script>\
+</body>\
+</html>}
